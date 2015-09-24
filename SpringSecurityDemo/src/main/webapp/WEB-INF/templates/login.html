@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      lang="en-US"
+      xml:lang="en-US"
+      xmlns:th="http://www.thymeleaf.org"
+      th:fragment="layout">
+<head lang="en">
+    <meta charset="gbk" />
+    <title>login</title>
+</head>
+<body>
+    <form action="/static/j_spring_security_check" method="post">
+        username:<input type="text" name="j_username"/>
+        password:<input type="password" name="j_password"/>
+        <input type="submit"/>login
+    </form>
+    <div th:if="${error!=null}">login failed</div>
+</body>
+</html>
