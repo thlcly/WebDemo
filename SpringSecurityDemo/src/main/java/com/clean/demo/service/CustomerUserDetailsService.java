@@ -22,6 +22,9 @@ public class CustomerUserDetailsService implements UserDetailsService{
     @Autowired
     private UserDao userDAO;
 
+    /**
+     * 登录的时候会调用
+     * */
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         UserDetails user = null;
 

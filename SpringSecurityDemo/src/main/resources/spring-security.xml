@@ -38,6 +38,7 @@
     <!-- 指定一个自定义的authentication-manager :customUserDetailsService -->
     <security:authentication-manager>
         <security:authentication-provider user-service-ref="customUserDetailsService">
+            <!--<security:password-encoder ref="passwordEncoder"/>-->
         </security:authentication-provider>
     </security:authentication-manager>
 
