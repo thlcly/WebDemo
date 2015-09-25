@@ -12,15 +12,27 @@
         <security:intercept-url pattern="/main/admin" access="hasRole('ROLE_ADMIN')"/>
         <security:intercept-url pattern="/main/common" access="hasRole('ROLE_USER')"/>
 
+
+        <!--
+            login-page:登录页面url
+            login-processing-url:提交数据的url,即表单中的action的值(spring security自带处理函数)
+            authentication-failure-url:登录失败的处理url
+            default-target-url:登录成功默认的处理url
+         -->
         <security:form-login
                 login-page="/auth/login"
                 authentication-failure-url="/auth/login?error=true"
+                login-processing-url="/login-check"
                 default-target-url="/main/common"/>
 
+        <!--
+            logout-success-url:登出成功的处理url
+            logout-url:登出url(spring security自带处理函数)
+        -->
         <security:logout
                 invalidate-session="true"
                 logout-success-url="/auth/login"
-                logout-url="/auth/logout"/>
+                logout-url="/auth/lo"/>
     </security:http>
 
     <!-- 指定一个自定义的authentication-manager :customUserDetailsService -->

@@ -9,12 +9,6 @@
     <title>login</title>
 </head>
 <body>
-    <form th:action="@{/login-check}" method="post">
-        username:<input type="text" name="j_username"/>
-        password:<input type="password" name="j_password"/>
-        <input type="submit"/>login
-    </form>
     <a th:href="@{/auth/login}">ÍË³öµÇÂ¼</a>
-    <div th:if="${error!=null}">login failed</div>
 </body>
 </html>
