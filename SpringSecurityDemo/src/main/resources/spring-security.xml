@@ -7,6 +7,10 @@
             http://www.springframework.org/schema/security
             http://www.springframework.org/schema/security/spring-security-3.2.xsd">
 
+    <!--
+        如果设置了create-session="never/stateless"则有可能登录不进去,因为每个页面都需要重新登录一遍
+
+    -->
     <security:http auto-config="true" use-expressions="true" access-denied-page="/auth/denied">
         <security:intercept-url pattern="/auth/login" access="permitAll"/>
         <security:intercept-url pattern="/main/admin" access="hasRole('ROLE_ADMIN')"/>
@@ -33,7 +37,16 @@
                 invalidate-session="true"
                 logout-success-url="/auth/login"
                 logout-url="/auth/lo"/>
+
+        <!--
+            为了防止csrf攻击添加了csrf token,这个token保存在session中,同时如果使用的是thymeleaf框架
+            则这个token已经继承好了(在thymeleaf中需要在提交表单时使用th才能生效token)
+            csrf token只对更改的http状态有效,例如put,post,delete,对get无效
+         -->
+        <security:csrf />
+
     </security:http>
+
 
     <!-- 指定一个自定义的authentication-manager :customUserDetailsService -->
     <security:authentication-manager>

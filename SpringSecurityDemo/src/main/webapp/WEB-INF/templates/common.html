@@ -1,10 +1,18 @@
 <!DOCTYPE html>
-<html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      lang="en-US"
+      xml:lang="en-US"
+      xmlns:th="http://www.thymeleaf.org"
+      th:fragment="layout">
 <head lang="en">
     <meta charset="UTF-8" />
     <title></title>
 </head>
 <body>
-    this is the Common page
+    <form action="/admin" method="post">
+        name : <input type="text" name="name"/>
+        hobby : <input type="text" name="hobby"/>
+        <input type="submit" value="submit"/>
+    </form>
 </body>
 </html>
